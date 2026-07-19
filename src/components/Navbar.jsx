@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import { Globe2, Send, Menu, X, Moon, Sun, Sparkles } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Menu, X, Moon, Sun, Sparkles } from 'lucide-react';
 
-const navLinks = [
+const NavLinks = [
   { label: 'Home', href: '#home' },
   { label: 'About', href: '#about' },
   { label: 'Skills', href: '#skills' },
@@ -9,73 +9,89 @@ const navLinks = [
   { label: 'Contact', href: '#contact' },
 ];
 
-export default function Navbar({ darkMode, setDarkMode }) {
+export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    // الحركة دي بتقلب ألوان الموقع كله بالكامل (التاسك كله) في ثانية واحدة
+    if (darkMode) {
+      document.documentElement.style.filter = 'invert(1) hue-rotate(180deg)';
+      // السطر ده عشان الصور والأيقونات متتقلبش ألوانها وتبوظ، تفضل بشكلها الطبيعي
+      document.querySelectorAll('img, video, svg, button span').forEach(el => {
+        if(!el.closest('button')) el.style.filter = 'invert(1) hue-rotate(180deg)';
+      });
+    } else {
+      document.documentElement.style.filter = 'none';
+      document.querySelectorAll('img, video, svg, button span').forEach(el => el.style.filter = 'none');
+    }
+  }, [darkMode]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[#d4a3a3]/20 bg-[#fefcfb]/90 backdrop-blur-xl shadow-[0_10px_45px_rgba(212,163,163,0.08)] transition-all duration-500 dark:border-[#d4a3a3]/30 dark:bg-[#fffdfd]/90 dark:shadow-[#d4a3a3]/10">
+    <header className="sticky top-0 z-50 border-b border-[#d4a3a3]/20 bg-[#fefcfb]/90 backdrop-blur-md transition-colors duration-300">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        <a href="#home" className="flex items-center gap-2 text-lg font-semibold tracking-[0.2em] text-[#c99292] transition-transform duration-300 hover:scale-105 dark:text-[#c99292]">
-          <span className="rounded-full bg-gradient-to-br from-[#d4a3a3] to-[#c99292] p-2 text-white shadow-lg shadow-[#d4a3a3]/20">
+        <a href="#home" className="flex items-center gap-2 text-lg font-semibold tracking-wider text-slate-900">
+          <span className="rounded-full bg-gradient-to-br from-[#d4a3a3] to-[#c99292] p-1 text-white">
             <Sparkles size={16} />
           </span>
           MALAK
         </a>
 
-        <div className="hidden items-center gap-7 md:flex">
-          {navLinks.map((item) => (
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-center gap-8">
+          {NavLinks.map((link) => (
             <a
-              key={item.href}
-              href={item.href}
-              className="text-sm font-medium text-[#4a3b3b] transition-colors duration-300 hover:text-[#c99292] dark:text-[#4a3b3b] dark:hover:text-[#c99292]"
+              key={link.label}
+              href={link.href}
+              className="text-sm font-medium text-slate-600 hover:text-[#d4a3a3] transition-colors"
             >
-              {item.label}
+              {link.label}
             </a>
           ))}
+          
+          {/* Dark Mode Button */}
+          <button
+            onClick={() => setDarkMode(!darkMode)}
+            className="rounded-full p-2 text-slate-600 hover:bg-slate-100 transition-colors"
+          >
+            {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+          </button>
         </div>
 
-        <div className="flex items-center gap-2">
-          <a href="https://github.com/malak-yasser66" target="_blank" rel="noreferrer" className="luxury-btn flex h-10 w-10 items-center justify-center rounded-full border border-[#d4a3a3]/25 bg-[#fffaf8] text-[#c99292] dark:border-[#d4a3a3]/30 dark:bg-[#fdf7f7] dark:text-[#c99292]" aria-label="GitHub">
-            <Globe2 size={18} />
-          </a>
-          <a href="https://www.linkedin.com/in/malak-yasser-524a75409?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noreferrer" className="luxury-btn flex h-10 w-10 items-center justify-center rounded-full border border-[#d4a3a3]/25 bg-[#fffaf8] text-[#c99292] dark:border-[#d4a3a3]/30 dark:bg-[#fdf7f7] dark:text-[#c99292]" aria-label="LinkedIn">
-            <Send size={18} />
-          </a>
-
+        {/* Mobile Menu Button */}
+        <div className="flex items-center gap-4 md:hidden">
           <button
-            type="button"
-            aria-label="Toggle color theme"
-            onClick={() => setDarkMode((value) => !value)}
-            className="luxury-btn flex h-10 w-10 items-center justify-center rounded-full border border-[#d4a3a3]/25 bg-[#fffaf8] text-[#c99292] dark:border-[#d4a3a3]/30 dark:bg-[#fdf7f7] dark:text-[#c99292]"
+            onClick={() => setDarkMode(!darkMode)}
+            className="rounded-full p-2 text-slate-600 hover:bg-slate-100 transition-colors"
           >
-            {darkMode ? <Sun size={18} className="transition-transform duration-500" /> : <Moon size={18} className="transition-transform duration-500" />}
+            {darkMode ? <Sun size={20} /> : <Moon size={20} />}
           </button>
-
           <button
-            type="button"
-            aria-label="Open menu"
-            className="luxury-btn flex h-10 w-10 items-center justify-center rounded-full border border-[#d4a3a3]/25 bg-[#fffaf8] text-[#c99292] md:hidden dark:border-[#d4a3a3]/30 dark:bg-[#fdf7f7] dark:text-[#c99292]"
-            onClick={() => setMobileOpen((value) => !value)}
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="text-slate-600"
           >
-            {mobileOpen ? <X size={18} /> : <Menu size={18} />}
+            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </nav>
 
-      <div className={`overflow-hidden px-4 pb-4 md:hidden ${mobileOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'}`}>
-        <div className="rounded-2xl border border-[#d4a3a3]/20 bg-[#fffaf8] p-4 shadow-[0_12px_35px_rgba(212,163,163,0.06)] dark:border-[#d4a3a3]/30 dark:bg-[#fdf7f7]">
-          {navLinks.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="block rounded-xl px-3 py-2 text-sm font-medium text-[#4a3b3b] transition-colors duration-300 hover:bg-[#d4a3a3] hover:text-white dark:text-[#4a3b3b] dark:hover:bg-[#d4a3a3]"
-              onClick={() => setMobileOpen(false)}
-            >
-              {item.label}
-            </a>
-          ))}
+      {/* Mobile Menu */}
+      {mobileOpen && (
+        <div className="md:hidden border-b border-slate-200 bg-[#fefcfb] px-4 py-4 transition-colors">
+          <div className="flex flex-col gap-4">
+            {NavLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                onClick={() => setMobileOpen(false)}
+                className="text-base font-medium text-slate-600 hover:text-[#d4a3a3] transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
     </header>
   );
-}
+} 
