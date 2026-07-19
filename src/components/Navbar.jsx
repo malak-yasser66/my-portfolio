@@ -35,10 +35,10 @@ export default function Navbar({ darkMode, setDarkMode }) {
         </div>
 
         <div className="flex items-center gap-2">
-          <a href="https://github.com/" target="_blank" rel="noreferrer" className="luxury-btn flex h-10 w-10 items-center justify-center rounded-full border border-[#d4a3a3]/25 bg-[#fffaf8] text-[#c99292] dark:border-[#d4a3a3]/30 dark:bg-[#fdf7f7] dark:text-[#c99292]" aria-label="GitHub">
+          <a href="https://github.com/malak-yasser66" target="_blank" rel="noreferrer" className="luxury-btn flex h-10 w-10 items-center justify-center rounded-full border border-[#d4a3a3]/25 bg-[#fffaf8] text-[#c99292] dark:border-[#d4a3a3]/30 dark:bg-[#fdf7f7] dark:text-[#c99292]" aria-label="GitHub">
             <Globe2 size={18} />
           </a>
-          <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" className="luxury-btn flex h-10 w-10 items-center justify-center rounded-full border border-[#d4a3a3]/25 bg-[#fffaf8] text-[#c99292] dark:border-[#d4a3a3]/30 dark:bg-[#fdf7f7] dark:text-[#c99292]" aria-label="LinkedIn">
+          <a href="https://www.linkedin.com/in/malak-yasser-524a75409?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noreferrer" className="luxury-btn flex h-10 w-10 items-center justify-center rounded-full border border-[#d4a3a3]/25 bg-[#fffaf8] text-[#c99292] dark:border-[#d4a3a3]/30 dark:bg-[#fdf7f7] dark:text-[#c99292]" aria-label="LinkedIn">
             <Send size={18} />
           </a>
 
