@@ -62,11 +62,11 @@ export default function Projects() {
                 </div>
 
                 <div className="mt-8 flex flex-wrap gap-3">
-                  <a href={project.repo} target="_blank" rel="noreferrer" className="luxury-btn inline-flex items-center gap-2 rounded-full border border-[#d4a3a3]/25 px-4 py-2 text-sm font-medium text-[#c99292] dark:border-[#d4a3a3]/25 dark:text-[#c99292]">
+                  <a href="https://github.com/malak-yasser66" target="_blank" rel="noreferrer" className="luxury-btn inline-flex items-center gap-2 rounded-full border border-[#d4a3a3]/25 px-4 py-2 text-sm font-medium text-[#c99292] dark:border-[#d4a3a3]/25 dark:text-[#c99292]">
                     <Globe2 size={16} />
                     GitHub
                   </a>
-                  <a href={project.demo} target="_blank" rel="noreferrer" className="luxury-btn inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#d4a3a3] to-[#c99292] px-4 py-2 text-sm font-medium text-white">
+                  <a href="my-portfolio-nine-puce-52.vercel.app" target="_blank" rel="noreferrer" className="luxury-btn inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#d4a3a3] to-[#c99292] px-4 py-2 text-sm font-medium text-white">
                     <ArrowUpRight size={16} />
                     Live Demo
                   </a>
