@@ -14,10 +14,10 @@ export default function Navbar() {
   const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
-    // الحركة دي بتقلب ألوان الموقع كله بالكامل (التاسك كله) في ثانية واحدة
+    
     if (darkMode) {
       document.documentElement.style.filter = 'invert(1) hue-rotate(180deg)';
-      // السطر ده عشان الصور والأيقونات متتقلبش ألوانها وتبوظ، تفضل بشكلها الطبيعي
+      
       document.querySelectorAll('img, video, svg, button span').forEach(el => {
         if(!el.closest('button')) el.style.filter = 'invert(1) hue-rotate(180deg)';
       });

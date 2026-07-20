@@ -6,9 +6,7 @@ const iconMap = {
   Code2,
   Database,
 };
-
 const skillGroups = skills;
-
 const signatureCards = [
   {
     title: 'The BIT Perspective',
