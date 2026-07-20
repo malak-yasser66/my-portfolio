@@ -49,11 +49,11 @@ export default function Contact() {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
-            <a href="https://github.com/" target="_blank" rel="noreferrer" className="luxury-btn inline-flex items-center gap-2 rounded-full border border-[#d4a3a3]/25 px-4 py-2 text-sm font-medium text-[#c99292] dark:border-[#d4a3a3]/25 dark:text-[#c99292]">
+            <a href="https://github.com/malak-yasser66" target="_blank" rel="noreferrer" className="luxury-btn inline-flex items-center gap-2 rounded-full border border-[#d4a3a3]/25 px-4 py-2 text-sm font-medium text-[#c99292] dark:border-[#d4a3a3]/25 dark:text-[#c99292]">
               <Globe2 size={16} />
               GitHub
             </a>
-            <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" className="luxury-btn inline-flex items-center gap-2 rounded-full border border-[#d4a3a3]/25 px-4 py-2 text-sm font-medium text-[#c99292] dark:border-[#d4a3a3]/25 dark:text-[#c99292]">
+            <a href="https://www.linkedin.com/in/malak-yasser-524a75409?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noreferrer" className="luxury-btn inline-flex items-center gap-2 rounded-full border border-[#d4a3a3]/25 px-4 py-2 text-sm font-medium text-[#c99292] dark:border-[#d4a3a3]/25 dark:text-[#c99292]">
               <Send size={16} />
               LinkedIn
             </a>
